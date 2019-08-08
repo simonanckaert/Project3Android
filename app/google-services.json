@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "402442978658",
+    "firebase_url": "https://herexamenproject3.firebaseio.com",
+    "project_id": "herexamenproject3",
+    "storage_bucket": "herexamenproject3.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:402442978658:android:48b5399c5cca54e0",
+        "android_client_info": {
+          "package_name": "com.hogent.mindfullnesherexamen"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "402442978658-k2p9j561u20i2hattps8oc25ghblv0co.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCpU6ekyCsbvQGcAh5B38tnz9f5vJgKe7s"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "402442978658-k2p9j561u20i2hattps8oc25ghblv0co.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

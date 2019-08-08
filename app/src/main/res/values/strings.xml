@@ -1,0 +1,54 @@
+<resources>
+    <string name="app_name">Mindfulness</string>
+    <string name="logo">Logo</string>
+    <string name="welkom">Welkom!</string>
+    <string name="sessies">Sessies</string>
+    <string name="kalender">Kalender</string>
+    <string name="reminder">Reminder</string>
+    <string name="contact">Contact</string>
+    <string name="kies_tijdstip">Kies Tijdstip</string>
+    <string name="notificatie">Notificatie</string>
+
+    <string name="reminderInhoud">Herinner me te mediteren om:</string>
+    <string name="prompt_email">Email address</string>
+    <string name="prompt_paswoord">Wachtwoord</string>
+    <string name="action_login">Login</string>
+    <string name="action_login_google">Login met google account</string>
+    <string name="action_register">Registreer</string>
+    <string name="registreer">Meld je aan.</string>
+    <string name="permission_rationale">Toestemming tot contacten is nodig</string>
+    <string name="error_incorrect_password">Incorrect wachtwoord</string>
+    <string name="error_incorrect_email">Incorrect e-mailadres</string>
+
+    <string name="praktijk_psychologen">Pieter-Jan De Schryver en medewerkers</string>
+    <string name="title_activity_contact">Contact</string>
+    <string name="uren_dag">09:00-21:00</string>
+    <string name="dag">Maandag - zaterdag:</string>
+    <string name="adress">Stropstraat 15 9000 Gent</string>
+    <string name="telefoon">0477 95 74 85</string>
+    <string name="gesloten_op_zondag">Gesloten op zondag</string>
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="send">Send</string>
+    <string name="email">Email</string>
+    <string name="onderwerp">Onderwerp</string>
+    <string name="text">Text</string>
+    <string name="profile">Profiel weergeven</string>
+
+    <string name="logout">Uitloggen</string>
+    <string name="register_name">Naam</string>
+    <string-array name="stepperLabels">
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+        <item>5</item>
+        <item>6</item>
+        <item>7</item>
+        <item>8</item>
+        <item>9</item>
+    </string-array>
+
+    <string name="msg_token_fmt" translatable="false">InstanceID Token: %s</string>
+    <string name="wachtwoord_beleid"> Je paswoord moet minimum 8 karakters lang zijn, verschillend zijn van de gebruikersnaam en minstens karakters uit volgende categorieën bevatten: kleine letters, hoofdletters, cijfers</string>
+    <string name="input_message">Bericht</string>
+</resources>
