@@ -71,7 +71,7 @@ class FragmentOefening : Fragment() {
         if (oefening.fileMimeType == "application/pdf"){
             wvPDF!!.visibility = View.VISIBLE
             wvPDF!!.settings.javaScriptEnabled = true
-            wvPDF!!.loadUrl("https://docs.google.com/gview?embedded=true&url=http://141.134.155.219:3000/oefeningen/files/" + oefening.url)
+            wvPDF!!.loadUrl("https://docs.google.com/gview?embedded=true&url=" + oefening.url)
         }
 
         // Toont afbeelding als oefening jpgbestand is
@@ -80,18 +80,18 @@ class FragmentOefening : Fragment() {
 
 
             Ion.with(ivOefening)
-                    .load("http://141.134.155.219:3000/oefeningen/files/" + oefening.url)
+                    .load("oefening.url")
 
             ivOefening!!.setOnClickListener{
                 val i = Intent(android.content.Intent.ACTION_VIEW)
-                i.setDataAndType(Uri.parse("http://141.134.155.219:3000/oefeningen/files/" + oefening.url), "image/jpg")
+                i.setDataAndType(Uri.parse(oefening.url), "image/jpg")
                 startActivity(i)
             }
         }
 
         // Toont afspeelknop als oefening audiobestand is
         if (oefening.fileMimeType.startsWith("audio")){
-            mp.setDataSource("http://141.134.155.219:3000/oefeningen/files/" + oefening.url)
+            mp.setDataSource(oefening.url)
 
 
             ibAudio!!.visibility = View.VISIBLE
@@ -116,7 +116,7 @@ class FragmentOefening : Fragment() {
             controller.setMediaPlayer(videoView)
             videoView!!.setMediaController(controller)
             videoView!!.visibility = View.VISIBLE
-            videoView!!.setVideoPath("http://141.134.155.219:3000/oefeningen/files/" + oefening.url)
+            videoView!!.setVideoPath(oefening.url)
             videoView!!.setOnPreparedListener {
                 controller.setAnchorView(videoView)
             }

@@ -9,10 +9,12 @@ import android.view.ViewGroup
 import android.widget.*
 import com.groep4.mindfulness.R
 import com.groep4.mindfulness.activities.MainActivity
+import com.groep4.mindfulness.model.Feedback
 import com.groep4.mindfulness.model.Oefening
 import com.groep4.mindfulness.model.Sessie
 import java.net.URL
 import okhttp3.*
+import java.util.*
 
 
 class FragmentOefeningFeedback : Fragment() {
@@ -40,7 +42,7 @@ class FragmentOefeningFeedback : Fragment() {
         val mainActivity = activity as MainActivity
 
         buttonOpslaan!!.setOnClickListener {
-            val serverURL: String = "http://141.134.155.219:3000/oefeningen/oef/" + oefening.oefenigenId + "/feedback"
+            /*val serverURL: String = "http://141.134.155.219:3000/oefeningen/oef/" + oefening.oefenigenId + "/feedback"
             val url = URL(serverURL)
 
                 val builder = Request.Builder().url(url)
@@ -61,8 +63,13 @@ class FragmentOefeningFeedback : Fragment() {
                         .postFeedback("http://141.134.155.219:3000/oefeningen/oef/" + oefening.oefenigenId + "/feedback", fromBodyBuilder.build())
 
 
-                txtOefeningNaam!!.text = response
-            (activity as MainActivity).onBackPressed()
+                txtOefeningNaam!!.text = response*/
+
+                var feedback = Feedback(oefening.naam + oefening.sessieId + oefening.oefenigenId, oefening.sessieId.toString(), oefening.oefenigenId.toString(), txtFeedback!!.text.toString(), ratingFeedback.toString())
+
+                (activity as MainActivity).postFeedback(feedback)
+
+                (activity as MainActivity).onBackPressed()
             }
 
 

@@ -43,7 +43,7 @@ class FragmentProfielGegevensWijzigen : Fragment() {
         txtGebruikersnaamFout = view.findViewById(R.id.txtFoutGebruikersnaam)
         txtTelnrFout = view.findViewById(R.id.txtFoutTelefoonnummer)
 
-        gebruiker = (activity as MainActivity)!!.getAangemeldeGebruiker()
+        gebruiker = (activity as MainActivity)!!.gebruiker
 
         txtRegio!!.text = gebruiker!!.regio
         txtGebruikersnaam!!.text = gebruiker!!.name

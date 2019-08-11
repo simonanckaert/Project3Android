@@ -8,17 +8,17 @@ class Gebruiker : Parcelable {
     var email : String? = ""
     var regio : String? = ""
     var telnr : String? = ""
-    var groepsnr : Int? = 0
+    var groepnr : Int? = 0
     var name : String? = ""
     var sessieId : Int = 1
 
 
-    constructor(uid : String, email : String, regio : String, telnr : String, groepsnr : Int, name : String, sessieId : Int) {
+    constructor(uid : String, email : String, regio : String, telnr : String, groepnr : Int, name : String, sessieId : Int) {
         this.email = email
         this.uid = uid
         this.regio = regio
         this.telnr = telnr
-        this.groepsnr = groepsnr
+        this.groepnr = groepnr
         this.name = name
         this.sessieId = sessieId
     }
@@ -30,7 +30,7 @@ class Gebruiker : Parcelable {
         this.email = parcel.readString()
         this.regio = parcel.readString()
         this.telnr = parcel.readString()
-        this.groepsnr = parcel.readInt()
+        this.groepnr = parcel.readInt()
         this.name = parcel.readString()
         this.sessieId = parcel.readInt()
     }
@@ -40,7 +40,7 @@ class Gebruiker : Parcelable {
         dest?.writeString(email)
         dest?.writeString(regio)
         dest?.writeString(telnr)
-        dest?.writeInt(groepsnr!!)
+        dest?.writeInt(groepnr!!)
         dest?.writeString(name)
         dest?.writeInt(sessieId)
     }

@@ -20,6 +20,7 @@ import com.google.firebase.firestore.FirebaseFirestoreSettings
 import com.groep4.mindfulness.R
 import com.groep4.mindfulness.fragments.*
 import com.groep4.mindfulness.interfaces.CallbackInterface
+import com.groep4.mindfulness.model.Feedback
 import com.groep4.mindfulness.model.Gebruiker
 import com.groep4.mindfulness.model.Oefening
 import com.groep4.mindfulness.model.Sessie
@@ -61,14 +62,9 @@ class MainActivity : AppCompatActivity(), CallbackInterface {
         Logger.addLogAdapter(AndroidLogAdapter())
 
         // Set gebruiker
-        if(this.gebruiker == null) {
+        //if(this.gebruiker == null) {
             getAangemeldeGebruiker()
-        }
-
-        // Sessies
-        sessies = getSessiesFromDB()
-        val extras = ExtendedDataHolder.getInstance()
-        extras.putExtra("sessielist", sessies)
+        //}
 
 
         //Set no new fragment if there already is one
@@ -132,6 +128,11 @@ class MainActivity : AppCompatActivity(), CallbackInterface {
 
         db.collection("Users").document(id).get().addOnCompleteListener { task ->
             this.gebruiker = task.result!!.toObject(Gebruiker::class.java)!!
+
+            // Sessies
+            sessies = getSessiesFromDB()
+            val extras = ExtendedDataHolder.getInstance()
+            extras.putExtra("sessielist", sessies)
         }
 
         return this.gebruiker;
@@ -143,14 +144,14 @@ class MainActivity : AppCompatActivity(), CallbackInterface {
     fun getOefeningen(oefeningen : ArrayList<HashMap<String,Any>>): ArrayList<Oefening>{
         val tempOefeningen: ArrayList<Oefening> = ArrayList();
         for(oef in oefeningen) {
-            if(oef["groepen"].toString().contains(gebruiker.groepsnr!!.toChar())) {
+            if(oef["groepen"].toString().contains(gebruiker.groepnr!!.toString())) {
                 var oefening = Oefening();
-                oefening.oefenigenId = (oef["oefenigenId"] as Long).toInt()
+                oefening.oefenigenId = (oef["oefeningId"] as Long?)!!.toInt()
                 oefening.naam = oef["naam"].toString()
                 oefening.beschrijving = oef["beschrijving"].toString()
-                oefening.sessieId = (oef["Id"] as Long).toInt()
+                oefening.sessieId = (oef["sessieId"] as Long?)!!.toInt()
                 oefening.url = oef["url"].toString()
-                oefening.fileMimeType = oef["mimeType"].toString()
+                oefening.fileMimeType = oef["fileMimetype"].toString()
                 oefening.groepen = oef["groepen"].toString()
                 oefening.fileOriginalName = oef["fileOriginalName"].toString()
                 oefening.fileSize = oef["fileSize"].toString()
@@ -262,18 +263,8 @@ class MainActivity : AppCompatActivity(), CallbackInterface {
     /**
      * Slaat de feedback op
      */
-    fun postFeedback(url: String, body:FormBody): String {
-        var response2 : String? = null
-        val thread = Thread(Runnable {
-            val mediaType: MediaType? = MediaType.parse("application/json; charset=utf-8")
-            val client: OkHttpClient = OkHttpClient()
-            //val body: RequestBody = RequestBody.create(mediaType, json)
-            val request: Request = Request.Builder().url(url).post(body).build()
-            val response = client.newCall(request).execute()
-            response2 = response.body().toString()
-        })
-        thread.start()
-        return response2.orEmpty()
+    fun postFeedback(feedback : Feedback) {
+        db.collection("feedback/oefening/" + feedback.id).document(gebruiker.uid!!).set(feedback)
     }
 
 

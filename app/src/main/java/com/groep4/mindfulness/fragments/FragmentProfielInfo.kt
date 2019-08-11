@@ -62,7 +62,7 @@ class FragmentProfielInfo: Fragment() {
         }
         else
         {
-            gebruiker = (activity as MainActivity).getAangemeldeGebruiker()
+            gebruiker = (activity as MainActivity).gebruiker
         }
 
         txtEmail!!.text = gebruiker!!.email

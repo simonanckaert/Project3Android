@@ -238,7 +238,7 @@ class FragmentKalender : Fragment()
                             val cursordb:Cursor = mydb.getDataSpecific(_task!!._key)
 
                             if(cursordb.count <=0) {
-                                if(_task._group == gebruiker!!.groepsnr.toString()){
+                                if(_task._group == gebruiker!!.groepnr.toString()){
                                 mydb.insertTaskwithid(_task!!._key,_task!!._text,_task._date.toString())
                                 }
                             }
