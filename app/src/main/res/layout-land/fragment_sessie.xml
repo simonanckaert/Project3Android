@@ -1,0 +1,421 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/rl_sessie"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_gravity="center"
+    android:gravity="center"
+    android:orientation="vertical">
+
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            android:orientation="vertical">
+
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <android.support.v7.widget.GridLayout
+                    android:id="@+id/grid_miscbg"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="bottom"
+                    app:orientation="vertical"
+                    app:rowCount="1">
+
+                    <ImageView
+                        android:id="@+id/iv_sessie_miscbg00"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentStart="true"
+                        android:layout_alignParentBottom="true"
+                        android:scaleType="fitCenter"
+                        app:layout_columnWeight="1"
+                        app:layout_gravity="bottom"
+                        app:srcCompat="@mipmap/bush00" />
+
+                    <ImageView
+                        android:id="@+id/iv_sessie_miscbg01"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentStart="true"
+                        android:layout_alignParentBottom="true"
+                        android:scaleType="fitCenter"
+                        app:layout_columnWeight="1"
+                        app:layout_gravity="bottom"
+                        app:srcCompat="@mipmap/tree02" />
+
+                    <ImageView
+                        android:id="@+id/iv_sessie_miscbg02"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentStart="true"
+                        android:layout_alignParentBottom="true"
+                        android:scaleType="fitCenter"
+                        app:layout_columnWeight="1"
+                        app:layout_gravity="bottom"
+                        app:srcCompat="@mipmap/tree01" />
+
+                    <ImageView
+                        android:id="@+id/iv_sessie_miscbg03"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentStart="true"
+                        android:layout_alignParentBottom="true"
+                        android:scaleType="fitCenter"
+                        app:layout_columnWeight="1"
+                        app:layout_gravity="bottom"
+                        app:srcCompat="@mipmap/bush01" />
+
+                </android.support.v7.widget.GridLayout>
+
+                <android.support.v7.widget.GridLayout
+                    android:id="@+id/grid_buildings"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="bottom"
+                    app:orientation="vertical"
+                    app:rowCount="1">
+
+                    <ImageView
+                        android:id="@+id/iv_sessie_building00"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentStart="true"
+                        android:layout_alignParentBottom="true"
+                        android:scaleType="fitCenter"
+                        app:layout_columnWeight="1"
+                        app:layout_gravity="bottom"
+                        app:srcCompat="@mipmap/building00" />
+
+                    <ImageView
+                        android:id="@+id/iv_sessie_building01"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentStart="true"
+                        android:layout_alignParentBottom="true"
+                        android:scaleType="fitCenter"
+                        app:layout_columnWeight="1"
+                        app:layout_gravity="bottom"
+                        app:srcCompat="@mipmap/building06" />
+
+
+
+                    <ImageView
+                        android:id="@+id/iv_sessie_finish"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentStart="true"
+                        android:layout_alignParentBottom="true"
+                        android:scaleType="fitCenter"
+                        app:layout_columnWeight="1"
+                        app:layout_gravity="bottom"
+                        app:srcCompat="@mipmap/finish" />
+
+                </android.support.v7.widget.GridLayout>
+
+                <android.support.v7.widget.GridLayout
+                    android:id="@+id/grid_miscfg"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="bottom"
+                    app:orientation="vertical"
+                    app:rowCount="1">
+
+                    <ImageView
+                        android:id="@+id/iv_sessie_miscfg00"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentStart="true"
+                        android:layout_alignParentBottom="true"
+                        android:scaleType="fitCenter"
+                        app:layout_columnWeight="1"
+                        app:layout_gravity="bottom"
+                        app:srcCompat="@mipmap/light00" />
+
+                    <ImageView
+                        android:id="@+id/iv_sessie_miscfg01"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentStart="true"
+                        android:layout_alignParentBottom="true"
+                        android:scaleType="fitCenter"
+                        app:layout_columnWeight="1"
+                        app:layout_gravity="bottom"
+                        app:srcCompat="@mipmap/light00" />
+
+                    <ImageView
+                        android:id="@+id/iv_sessie_miscfg02"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentStart="true"
+                        android:layout_alignParentBottom="true"
+                        android:scaleType="fitCenter"
+                        app:layout_columnWeight="1"
+                        app:layout_gravity="bottom"
+                        app:srcCompat="@mipmap/light00" />
+
+                    <ImageView
+                        android:id="@+id/iv_sessie_miscfg03"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentStart="true"
+                        android:layout_alignParentBottom="true"
+                        android:scaleType="fitCenter"
+                        app:layout_columnWeight="1"
+                        app:layout_gravity="bottom"
+                        app:srcCompat="@mipmap/light00" />
+
+                    <ImageView
+                        android:id="@+id/iv_sessie_miscfg04"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentStart="true"
+                        android:layout_alignParentBottom="true"
+                        android:scaleType="fitCenter"
+                        app:layout_columnWeight="1"
+                        app:layout_gravity="bottom"
+                        app:srcCompat="@mipmap/light00" />
+
+                </android.support.v7.widget.GridLayout>
+
+            </FrameLayout>
+
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:scaleX="1.5"
+                android:scaleY="1.5">
+
+                <ImageView
+                    android:id="@+id/iv_sessie_road00"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentStart="true"
+                    android:layout_alignParentBottom="true"
+                    android:layout_gravity="bottom"
+                    android:scaleType="fitXY"
+                    app:srcCompat="@mipmap/road00" />
+
+                <ImageView
+                    android:id="@+id/iv_sessie_road01"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentStart="true"
+                    android:layout_alignParentBottom="true"
+                    android:layout_gravity="bottom"
+                    android:layout_marginBottom="10dp"
+                    android:scaleType="centerInside"
+                    app:srcCompat="@mipmap/road01" />
+            </FrameLayout>
+
+        </LinearLayout>
+
+        <android.support.v7.widget.CardView
+            android:id="@+id/cv_sessie"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="left|center"
+            android:layout_marginLeft="30dp"
+            android:layout_marginBottom="20dp">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:orientation="vertical"
+                tools:layout_editor_absoluteX="20dp"
+                tools:layout_editor_absoluteY="179dp">
+
+                <ImageView
+                    android:id="@+id/iv_sessie"
+                    android:layout_width="200dp"
+                    android:layout_height="160dp"
+                    android:layout_weight="0"
+                    android:padding="15dp"
+                    android:scaleType="fitCenter"
+                    app:srcCompat="@mipmap/m0" />
+
+                <TextView
+                    android:id="@+id/tv_sessie"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0"
+                    android:text="Sessies"
+                    android:textAlignment="center"
+                    android:textAllCaps="true"
+                    android:textColor="@android:color/black"
+                    android:textStyle="bold" />
+            </LinearLayout>
+
+        </android.support.v7.widget.CardView>
+
+        <FrameLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            >
+            <GridLayout
+                android:layout_height="wrap_content"
+                android:layout_width="wrap_content">
+                <ImageView
+                    android:id="@+id/iv_fw1"
+                    android:layout_width="120dp"
+                    android:layout_height="100dp"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginTop="180dp"
+                    app:srcCompat="@mipmap/fw1"
+                    />
+
+
+                <ImageView
+                    android:id="@+id/iv_fw2"
+                    android:layout_width="120dp"
+                    android:layout_height="100dp"
+                    android:layout_marginTop="50dp"
+                    app:srcCompat="@mipmap/fw2"/>
+
+                <ImageView
+                    android:id="@+id/iv_fw3"
+                    android:layout_width="120dp"
+                    android:layout_height="100dp"
+                    android:layout_marginTop="130dp"
+                    app:srcCompat="@mipmap/fw3"/>
+            </GridLayout>
+        </FrameLayout>
+
+
+        <ImageView
+            android:id="@+id/iv_bus"
+            android:layout_width="200dp"
+            android:layout_height="150dp"
+            android:layout_gravity="bottom|right"
+            android:layout_marginRight="13dp"
+            android:layout_marginBottom="20dp"
+            android:adjustViewBounds="true"
+            android:scaleType="centerInside"
+            android:visibility="invisible"
+            app:srcCompat="@mipmap/bus" />
+
+        <android.support.v7.widget.GridLayout
+            android:id="@+id/gl_bus_passengers"
+            android:layout_width="205dp"
+            android:layout_height="101dp"
+            android:layout_gravity="bottom|right"
+            android:layout_marginLeft="10dp"
+            android:layout_marginBottom="65dp"
+            android:visibility="invisible"
+            app:rowCount="2">
+
+            <ImageView
+                android:id="@+id/iv_bus_seat8"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_margin="6dp"
+                android:layout_marginBottom="20dp"
+                android:visibility="invisible"
+                app:layout_row="0"
+                app:layout_rowSpan="1"
+                app:srcCompat="@mipmap/mnstr2" />
+
+            <ImageView
+                android:id="@+id/iv_bus_seat7"
+                android:layout_width="31dp"
+                android:layout_height="30dp"
+                android:layout_margin="6dp"
+                android:layout_marginBottom="20dp"
+                android:visibility="invisible"
+                app:layout_row="0"
+                app:layout_rowSpan="1"
+                app:srcCompat="@mipmap/mnstr2" />
+
+            <ImageView
+                android:id="@+id/iv_bus_seat6"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_margin="6dp"
+                android:layout_marginBottom="20dp"
+                android:visibility="invisible"
+                app:layout_row="0"
+                app:layout_rowSpan="1"
+                app:srcCompat="@mipmap/mnstr2" />
+
+            <ImageView
+                android:id="@+id/iv_bus_seat5"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_margin="6dp"
+                android:layout_marginBottom="20dp"
+                android:visibility="invisible"
+                app:layout_row="0"
+                app:layout_rowSpan="1"
+                app:srcCompat="@mipmap/mnstr2" />
+
+            <ImageView
+                android:id="@+id/iv_bus_seat4"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_margin="6dp"
+                android:layout_marginBottom="20dp"
+                android:visibility="invisible"
+                app:layout_column="0"
+                app:layout_row="1"
+                app:srcCompat="@mipmap/mnstr2" />
+
+            <ImageView
+                android:id="@+id/iv_bus_seat3"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_margin="6dp"
+                android:layout_marginBottom="20dp"
+                android:visibility="invisible"
+                app:layout_column="1"
+                app:layout_row="1"
+                app:srcCompat="@mipmap/mnstr2" />
+
+            <ImageView
+                android:id="@+id/iv_bus_seat2"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_margin="6dp"
+                android:layout_marginBottom="20dp"
+                android:visibility="invisible"
+                app:layout_column="2"
+                app:layout_row="1"
+                app:srcCompat="@mipmap/mnstr2" />
+
+            <ImageView
+                android:id="@+id/iv_bus_seat1"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_margin="6dp"
+                android:layout_marginBottom="20dp"
+                android:visibility="invisible"
+                app:layout_column="3"
+                app:layout_row="1"
+                app:srcCompat="@mipmap/mnstr2" />
+        </android.support.v7.widget.GridLayout>
+
+        <ImageView
+            android:id="@+id/iv_bus_gloss"
+            android:layout_width="200dp"
+            android:layout_height="150dp"
+            android:layout_gravity="bottom|right"
+            android:layout_marginRight="13dp"
+            android:layout_marginBottom="20dp"
+            android:adjustViewBounds="true"
+            android:scaleType="centerInside"
+            android:visibility="invisible"
+            app:srcCompat="@mipmap/busgloss" />
+    </FrameLayout>
+
+
+</RelativeLayout>

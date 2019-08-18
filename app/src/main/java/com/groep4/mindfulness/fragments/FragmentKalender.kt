@@ -29,6 +29,7 @@ import android.content.DialogInterface
 import android.os.Build
 import android.support.v7.app.AlertDialog
 import com.google.firebase.database.*
+import com.google.firebase.firestore.FirebaseFirestore
 import com.groep4.mindfulness.activities.MainActivity
 import com.groep4.mindfulness.model.Gebruiker
 import com.groep4.mindfulness.model.Task
@@ -44,7 +45,7 @@ class FragmentKalender : Fragment()
     lateinit var taskNoScrollListToday: NoScrollListView ; lateinit var taskNoScrollListTomorrow: NoScrollListView  ; lateinit var taskNoScrollListUpcoming: NoScrollListView
     lateinit var scrollView: NestedScrollView
     lateinit var todayText: TextView ; lateinit var tomorrowText: TextView ; lateinit var upcomingText: TextView
-    lateinit var ref:DatabaseReference
+    lateinit var db: FirebaseFirestore
     var todayList = ArrayList<HashMap<String, String>>()
     var tomorrowList = ArrayList<HashMap<String, String>>()
     var upcomingList = ArrayList<HashMap<String, String>>()
@@ -227,9 +228,25 @@ class FragmentKalender : Fragment()
 
     }
     fun loadFirebaseDataList(){
-        ref = FirebaseDatabase.getInstance().getReference("Announcement")
+        db = FirebaseFirestore.getInstance()
 
-        ref.addValueEventListener(object : ValueEventListener{
+        db.collection("aankondigingen").get().addOnCompleteListener { task ->
+            for(document in task.result!!) {
+                try{
+                    val cursordb:Cursor = mydb.getDataSpecific(document["id"]!!.toString())
+
+                    if(cursordb.count <=0) {
+                        if(document["groep"].toString() == gebruiker!!.groepnr.toString()){
+                            mydb.insertTaskwithid(document["id"]!!.toString(),document["title"]!!.toString(),document["start"]!!.toString())
+                        }
+                    }
+                }catch (e:Exception){
+                    System.out.println(e.printStackTrace())
+                }
+            }
+        }
+
+        /*ref.addValueEventListener(object : ValueEventListener{
             override fun onDataChange(dataSnapshot: DataSnapshot) {
                 if(dataSnapshot!!.exists()){
                     for (data in dataSnapshot.children){
@@ -254,7 +271,7 @@ class FragmentKalender : Fragment()
             override fun onCancelled(p0: DatabaseError) {
 
             }
-        })
+        })*/
     }
     /**
      * Task update als er word op geklikt

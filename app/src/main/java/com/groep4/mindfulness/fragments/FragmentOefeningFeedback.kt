@@ -65,7 +65,7 @@ class FragmentOefeningFeedback : Fragment() {
 
                 txtOefeningNaam!!.text = response*/
 
-                var feedback = Feedback(oefening.naam + oefening.sessieId + oefening.oefenigenId, oefening.sessieId.toString(), oefening.oefenigenId.toString(), txtFeedback!!.text.toString(), ratingFeedback.toString())
+                var feedback = Feedback(oefening.naam, oefening.sessieId.toString(), oefening.oefenigenId.toString(), txtFeedback!!.text.toString(), ratingFeedback.toString())
 
                 (activity as MainActivity).postFeedback(feedback)
 

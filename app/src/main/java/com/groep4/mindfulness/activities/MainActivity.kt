@@ -264,7 +264,9 @@ class MainActivity : AppCompatActivity(), CallbackInterface {
      * Slaat de feedback op
      */
     fun postFeedback(feedback : Feedback) {
-        db.collection("feedback/oefening/" + feedback.id).document(gebruiker.uid!!).set(feedback)
+        db.collection("feedback").document(feedback.sessieId!!)
+                .collection("oefeningen").document(feedback.oefeningId!!)
+                .collection("feedback").document(gebruiker.uid!!).set(feedback)
     }
 
 
