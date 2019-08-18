@@ -12,9 +12,6 @@ And is finished by Simon Anckaert during August.
 ## Getting Started & Deployment
 * Git clone this project into folder of your choosing
 * Open project in Android Studio
-* Comment out next line in build.gradle:  
-buildScan { termsOfServiceUrl = 'https://gradle.com/terms-of-service' termsOfServiceAgree = 'yes' }  
-(This file is used by DevOps but needs to be commented out to be able to build in Android Studio)
 * Gradle sync & build
 
 ### Prerequisites
