@@ -10,7 +10,6 @@ import android.animation.AnimatorListenerAdapter
 import android.annotation.TargetApi
 import android.content.Intent
 import android.support.constraint.Constraints.TAG
-import android.support.design.widget.Snackbar
 import android.support.v4.app.Fragment
 import android.util.Log
 import android.view.LayoutInflater
@@ -18,7 +17,6 @@ import android.view.ViewGroup
 import android.widget.Toast
 import com.google.android.gms.auth.api.signin.GoogleSignIn
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount
-import com.google.android.gms.auth.api.signin.GoogleSignInClient
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions
 import com.google.android.gms.common.api.ApiException
 
@@ -40,18 +38,12 @@ import kotlinx.android.synthetic.main.fragment_login.view.*
     /**
      * Houd de inlogtaak bij om ervoor te zorgen dat we deze kunnen annuleren als hierom wordt gevraagd.
      */
-
     private val RC_SIGN_IN: Int = 1
     lateinit var mAuth: FirebaseAuth
-    lateinit var gso : GoogleSignInOptions
     lateinit var db: FirebaseFirestore
 
      override fun onCreate(savedInstanceState: Bundle?) {
          super.onCreate(savedInstanceState)
-         gso = GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
-                 .requestIdToken(getString(R.string.default_web_client_id))
-                 .requestEmail()
-                 .build()
      }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
@@ -69,7 +61,6 @@ import kotlinx.android.synthetic.main.fragment_login.view.*
         })
         view.email
         view.email_sign_in_button.setOnClickListener { attemptLogin() }
-        view.email_sign_in_google_button.setOnClickListener{attemptGoogleLogin()}
         activity!!.tv_register.visibility = View.VISIBLE
         activity!!.tv_register.text = "Nog geen account? Klik hier om te registreren."
         activity!!.tv_register.isClickable
@@ -182,55 +173,6 @@ import kotlinx.android.synthetic.main.fragment_login.view.*
             activity!!.login_layout.visibility = if (show) View.GONE else View.VISIBLE
         }
     }
-
-    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
-        super.onActivityResult(requestCode, resultCode, data)
-
-        // Result returned from launching the Intent from GoogleSignInApi.getSignInIntent(...);
-        if (requestCode == RC_SIGN_IN) {
-            val task = GoogleSignIn.getSignedInAccountFromIntent(data)
-            try {
-                // Google Sign In was successful, authenticate with Firebase
-                val account = task.getResult(ApiException::class.java)
-                firebaseAuthWithGoogle(account!!)
-            } catch (e: ApiException) {
-                // Google Sign In failed, update UI appropriately
-                Log.w(TAG, "Google sign in failed", e)
-                Toast.makeText(activity!!.applicationContext, e.toString(), Toast.LENGTH_SHORT)
-                // ...
-            }
-        }
-    }
-
-
-    private fun firebaseAuthWithGoogle(acct: GoogleSignInAccount) {
-        val credential = GoogleAuthProvider.getCredential(acct.idToken, null)
-        mAuth = FirebaseAuth.getInstance()
-        mAuth.signInWithCredential(credential)
-                .addOnCompleteListener(activity!!) { task ->
-                    if (task.isSuccessful) {
-                        // Sign in success, update UI with the signed-in user's information
-                        Log.d(TAG, "signInWithCredential:success")
-                        val user = mAuth.currentUser
-                        val intent = Intent(activity, MainActivity::class.java)
-                        this.startActivity(intent)
-                        activity!!.finish()
-                    } else {
-                        // If sign in fails, display a message to the user.
-                        Toast.makeText((activity!!).applicationContext, "Authentication Failed.", Toast.LENGTH_SHORT).show()
-                    }
-                }
-    }
-
-     /**
-      * Inloggen met google
-      */
-    fun attemptGoogleLogin(){
-        val googleSignInClient = GoogleSignIn.getClient(activity!!, gso!!)
-        val signInIntent = googleSignInClient.signInIntent
-        startActivityForResult(signInIntent, RC_SIGN_IN)
-    }
-
 
      override fun onResume() {
         super.onResume()

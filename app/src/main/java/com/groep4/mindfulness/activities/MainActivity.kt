@@ -1,20 +1,14 @@
 package com.groep4.mindfulness.activities
 
-import kotlinx.coroutines.*
 import android.content.Intent
 import android.os.Bundle
-import android.os.Parcel
-import android.os.PersistableBundle
-import android.support.v4.R.id.async
 import android.support.v4.app.Fragment
 import android.support.v7.app.AlertDialog
 import android.support.v7.app.AppCompatActivity
-import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
 import android.widget.Toast
 import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.firestore.DocumentSnapshot
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.FirebaseFirestoreSettings
 import com.groep4.mindfulness.R
@@ -28,10 +22,6 @@ import com.groep4.mindfulness.utils.ExtendedDataHolder
 import com.orhanobut.logger.AndroidLogAdapter
 import com.orhanobut.logger.Logger
 import okhttp3.*
-import org.json.JSONArray
-import org.json.JSONObject
-import java.io.IOException
-import java.util.*
 import kotlin.collections.ArrayList
 import kotlin.collections.HashMap
 
@@ -54,17 +44,10 @@ class MainActivity : AppCompatActivity(), CallbackInterface {
 
         mAuth = FirebaseAuth.getInstance()
         db = FirebaseFirestore.getInstance()
-        val settings = FirebaseFirestoreSettings.Builder()
-            .setTimestampsInSnapshotsEnabled(true)
-            .build();
-        db.setFirestoreSettings(settings);
 
         Logger.addLogAdapter(AndroidLogAdapter())
 
-        // Set gebruiker
-        //if(this.gebruiker == null) {
-            getAangemeldeGebruiker()
-        //}
+        getAangemeldeGebruiker()
 
 
         //Set no new fragment if there already is one
@@ -160,39 +143,6 @@ class MainActivity : AppCompatActivity(), CallbackInterface {
             }
         }
         return tempOefeningen
-        /*val oefeningen: ArrayList<Oefening> = ArrayList()
-
-        // HTTP Request oefeningen
-        val request = Request.Builder()
-                /*.header("Authorization", "token abcd")*/
-                .url("http://141.134.155.219:3000/oefeningen/$sessieId")
-                .build()
-
-        client.newCall(request).enqueue(object : Callback {
-            override fun onFailure(call: Call, e: IOException) {
-                Log.e("ERROR", "HTTP request failed: $e")
-            }
-
-            override fun onResponse(call: Call, response: Response) {
-                val jsonarray = JSONArray(response.body()!!.string())
-                for (i in 0 until jsonarray.length()) {
-                    val jsonobject = jsonarray.getJSONObject(i)
-                    val oefeningenId = jsonobject.getInt("oefeningId")
-                    val naam = jsonobject.getString("naam")
-                    val beschrijving = jsonobject.getString("beschrijving")
-                    val sessieid = jsonobject.getInt("sessieId")
-                    val fileUrl = jsonobject.getString("fileName")
-                    val fileMimeType = jsonobject.getString("fileMimetype")
-                    val groepen = jsonobject.getString("groepen")
-
-                    if(groepen.contains(gebruiker!!.groepsnr.toString())) {
-                        //val oefening: Oefening = Oefening(oefeningenId, naam, beschrijving, sessieid, fileUrl, fileMimeType, groepen)
-                        //oefeningen.add(oefening)
-                    }
-                }
-            }
-        })
-        return oefeningen*/
     }
 
     /**

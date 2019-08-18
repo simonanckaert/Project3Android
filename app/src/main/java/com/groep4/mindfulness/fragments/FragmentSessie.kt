@@ -14,7 +14,6 @@ import android.view.View
 import android.view.View.INVISIBLE
 import android.view.View.VISIBLE
 import android.view.ViewGroup
-import android.view.animation.Animation
 import android.widget.*
 import com.groep4.mindfulness.R
 import com.groep4.mindfulness.interfaces.CallbackInterface
@@ -31,7 +30,6 @@ import kotlin.collections.ArrayList
 class FragmentSessie : Fragment() {
 
     private var callback: CallbackInterface? = null
-
     private var imgSessie: ImageView? = null
     private var cvSessie: CardView? = null
     private var txtSessieTitel: TextView? = null
@@ -108,11 +106,12 @@ class FragmentSessie : Fragment() {
 
         // Dynamisch background images verdelen per sessie
         if (main.gebruiker!!.sessieId == 8){
-        if (arguments!!.containsKey("isLast")){
-            achtergrondFinish()
+            if (arguments!!.containsKey("isLast")){
+                achtergrondFinish()
+            } else {
+                achtergrondRandomizen()
+            }
         } else {
-            achtergrondRandomizen()
-        }} else {
             achtergrondRandomizen()
         }
         screenWidth = resources.displayMetrics.widthPixels
@@ -124,7 +123,6 @@ class FragmentSessie : Fragment() {
         super.onActivityCreated(savedInstanceState)
         val page = arguments!!.getInt("page", 0)
         val sessie = arguments!!.getParcelable<Sessie>("sessie")
-
         val imgRes = context!!.resources.getIdentifier("mnstr$page","mipmap", context!!.packageName)
         imgSessie!!.setImageResource(imgRes)
 
@@ -135,9 +133,9 @@ class FragmentSessie : Fragment() {
             if (i < 8){
                 val imgResBus = context!!.resources.getIdentifier("mnstr" + (i+1),"mipmap", context!!.packageName)
                 imgBusMonsters!![i].setImageResource(imgResBus)
-                imgBusMonsters!![i].visibility = VISIBLE}
+                imgBusMonsters!![i].visibility = VISIBLE
             }
-
+        }
         txtSessieTitel!!.text = sessie.naam
 
         //Open een sessie indien erop geklikt is

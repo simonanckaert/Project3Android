@@ -3,7 +3,6 @@ package com.groep4.mindfulness.fragments
 import android.content.Context
 import android.os.Bundle
 import android.support.v4.app.Fragment
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -22,7 +21,6 @@ class FragmentProfielInfo: Fragment() {
     private var gebruiker : Gebruiker? = null
     private var txtRegio: TextView? = null
     private var txtTelnr : TextView? = null
-
     private var btnGegevensWijzigen : Button? = null
 
     override fun onAttach(context: Context) {
@@ -47,16 +45,12 @@ class FragmentProfielInfo: Fragment() {
             // Launch fragment met callback naar activity
             callback?.setFragment(FragmentProfielGegevensWijzigen(), true)
         }
-
         return view
     }
-
 
     override fun onActivityCreated(savedInstanceState: Bundle?)
     {
         super.onActivityCreated(savedInstanceState)
-
-
         if (savedInstanceState != null) {
             gebruiker = savedInstanceState!!.getParcelable("gebruiker") as Gebruiker
         }
@@ -74,7 +68,6 @@ class FragmentProfielInfo: Fragment() {
     override fun onSaveInstanceState(outState: Bundle)
     {
         super.onSaveInstanceState(outState)
-
         outState!!.putParcelable("gebruiker", this.gebruiker)
     }
 }

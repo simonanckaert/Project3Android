@@ -11,8 +11,6 @@ import com.google.firebase.auth.FirebaseAuth
 import com.groep4.mindfulness.R
 import com.groep4.mindfulness.fragments.FragmentLogin
 import com.groep4.mindfulness.fragments.FragmentRegister
-import kotlinx.android.synthetic.main.activity_login.*
-import com.google.firebase.auth.FirebaseUser
 
 
 

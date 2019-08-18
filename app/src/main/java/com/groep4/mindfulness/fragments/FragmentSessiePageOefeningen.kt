@@ -31,7 +31,6 @@ class FragmentSessiePageOefeningen : Fragment() {
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         val view: View = inflater.inflate(R.layout.fragment_sessie_page_oefeningen, container, false)
-        //expandingList = view.findViewById(R.id.expanding_list_main)
 
         txtGeenOefeningen = view.findViewById(R.id.txtGeenOefeningen)
 
@@ -88,9 +87,6 @@ class FragmentSessiePageOefeningen : Fragment() {
 
             }
         })
-
-
-
         return view
     }
 

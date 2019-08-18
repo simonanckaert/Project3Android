@@ -12,8 +12,6 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.auth.FirebaseUser
-import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.firestore.FirebaseFirestore
 import com.groep4.mindfulness.R
 import com.groep4.mindfulness.model.User
@@ -27,7 +25,6 @@ class FragmentRegister : Fragment() {
 
     lateinit var mAuth: FirebaseAuth
 
-
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
 
         val view:View=inflater!!.inflate(R.layout.fragment_register,container,false)
@@ -36,13 +33,10 @@ class FragmentRegister : Fragment() {
         activity!!.tv_register.text = resources.getString(R.string.wachtwoord_beleid)
         activity!!.tv_register.isClickable.not()
         return view
-
     }
 
     fun attemptRegister() {
-
         // Reset errors.
-
         register_email.error = null
         register_password.error = null
 
@@ -138,7 +132,6 @@ class FragmentRegister : Fragment() {
                         }
                     })
         } else {
-
             activity!!.login_progress.visibility = if (show) View.VISIBLE else View.GONE
             activity!!.login_layout.visibility = if (show) View.GONE else View.VISIBLE
         }

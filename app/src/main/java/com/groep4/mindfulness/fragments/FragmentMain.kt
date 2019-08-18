@@ -11,7 +11,6 @@ import com.groep4.mindfulness.R
 import android.support.v7.app.AppCompatActivity
 import android.widget.TextView
 import com.groep4.mindfulness.interfaces.CallbackInterface
-import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.fragment_main.view.*
 import java.util.*
 

@@ -1,6 +1,5 @@
 package com.groep4.mindfulness.fragments
 
-import android.app.Activity
 import android.graphics.Color
 import android.os.Bundle
 import android.os.Handler
@@ -30,7 +29,6 @@ class FragmentSessieLijst : Fragment() {
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         val view: View = inflater.inflate(R.layout.fragment_sessie_lijst, container, false)
         val main: MainActivity = (activity as MainActivity)
-
 
         // (Statische) sessies toevoegen, in afwachting van DB
         addSessies()
@@ -151,11 +149,10 @@ class FragmentSessieLijst : Fragment() {
      */
     private fun alleSessiesUnlocked(): Boolean {
         val main = activity as MainActivity
-
         if (main.gebruiker!!.sessieId == sessies.size){
             return true
         }
-            return false
+        return false
     }
 }
 

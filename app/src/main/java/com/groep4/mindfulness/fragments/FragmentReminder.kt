@@ -23,17 +23,14 @@ import android.app.AlarmManager
 import android.app.PendingIntent
 import android.content.Context
 import android.content.Intent
-import com.groep4.mindfulness.interfaces.CallbackInterface
 import com.groep4.mindfulness.receivers.AlarmReceiver
 import es.dmoral.toasty.Toasty
 
 
 class FragmentReminder : Fragment() {
     private var mNotified = false
-
     private var mTimeSetListener: TimePickerDialog.OnTimeSetListener? = null
     private var mDisplayTime: TextView? = null
-
     private var prefs: SharedPreferences? = null
 
     val PREFS_REMINDER = "com.groep4.mindfulness.prefs"
@@ -52,7 +49,6 @@ class FragmentReminder : Fragment() {
 
         view.tr_page.setBackgroundColor(ContextCompat.getColor(context!!, R.color.colorPink))
         view.tv_page.setText(R.string.reminder)
-
 
         prefs = context?.getSharedPreferences(PREFS_REMINDER, 0)
 

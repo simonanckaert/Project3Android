@@ -11,11 +11,6 @@ import com.groep4.mindfulness.R
 import com.groep4.mindfulness.activities.MainActivity
 import com.groep4.mindfulness.model.Feedback
 import com.groep4.mindfulness.model.Oefening
-import com.groep4.mindfulness.model.Sessie
-import java.net.URL
-import okhttp3.*
-import java.util.*
-
 
 class FragmentOefeningFeedback : Fragment() {
     private var txtOefeningNaam : TextView? = null
@@ -39,45 +34,16 @@ class FragmentOefeningFeedback : Fragment() {
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
         var oefening = arguments!!.getParcelable<Oefening>("oefening")
-        val mainActivity = activity as MainActivity
 
         buttonOpslaan!!.setOnClickListener {
-            /*val serverURL: String = "http://141.134.155.219:3000/oefeningen/oef/" + oefening.oefenigenId + "/feedback"
-            val url = URL(serverURL)
-
-                val builder = Request.Builder().url(url)
-
-                val sb = StringBuilder()
-                sb.append("oefeningId=" + oefening.oefenigenId)
-                        .append("&&")
-                        .append("beschrijving="+txtFeedback!!.text)
-                        .append("&&")
-                        .append("score=" + ratingFeedback)
-
-                val fromBodyBuilder = FormBody.Builder()
-                fromBodyBuilder.add("oefeningId", oefening.oefenigenId.toString())
-                fromBodyBuilder.add("beschrijving", txtFeedback!!.text.toString())
-                fromBodyBuilder.add("score", ratingFeedback.toString())
-
-                var response = (activity as MainActivity)
-                        .postFeedback("http://141.134.155.219:3000/oefeningen/oef/" + oefening.oefenigenId + "/feedback", fromBodyBuilder.build())
-
-
-                txtOefeningNaam!!.text = response*/
-
                 var feedback = Feedback(oefening.naam, oefening.sessieId.toString(), oefening.oefenigenId.toString(), txtFeedback!!.text.toString(), ratingFeedback.toString())
-
                 (activity as MainActivity).postFeedback(feedback)
-
                 (activity as MainActivity).onBackPressed()
             }
-
 
             ratingBar!!.setOnRatingBarChangeListener { ratingBar, rating, fromUser ->
                 ratingFeedback = (rating * 2).toInt()
             }
         txtOefeningNaam!!.text = oefening.naam
     }
-
-
 }

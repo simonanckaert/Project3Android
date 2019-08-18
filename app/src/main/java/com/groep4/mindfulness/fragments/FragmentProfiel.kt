@@ -5,7 +5,6 @@ import android.support.design.widget.AppBarLayout
 import android.support.design.widget.TabLayout
 import android.support.v4.app.Fragment
 import android.support.v4.view.ViewPager
-import android.support.v7.app.AppCompatActivity
 import android.util.Log
 import android.view.*
 import com.groep4.mindfulness.R
@@ -30,7 +29,6 @@ class FragmentProfiel: Fragment() {
         // adding fragments
         fragmentAdapter!!.addFragment(FragmentProfielInfo(),"Info")
         fragmentAdapter!!.addFragment(FragmentProfielOverzicht(), "Voortgang")
-        Log.d("aa", "mew fragmentadatpor")
 
         //adapter setup
         view.viewpager_id.adapter = fragmentAdapter

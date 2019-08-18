@@ -4,12 +4,9 @@ import android.support.v4.app.Fragment
 import android.support.v4.app.FragmentManager
 import android.support.v4.app.FragmentPagerAdapter
 import android.util.SparseArray
-import android.view.View
 import android.view.ViewGroup
 import com.groep4.mindfulness.fragments.FragmentOefening
-import com.groep4.mindfulness.fragments.FragmentSessie
 import com.groep4.mindfulness.model.Oefening
-import com.groep4.mindfulness.model.Sessie
 
 
 internal class OefeningenPagerAdapter(fm: FragmentManager, val oefeningen: ArrayList<Oefening>) : FragmentPagerAdapter(fm) {

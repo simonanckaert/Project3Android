@@ -1,8 +1,5 @@
 package com.groep4.mindfulness.fragments
 
-
-import android.content.Context
-import android.graphics.Color
 import android.os.Bundle
 import android.support.v4.app.Fragment
 import android.support.v4.content.ContextCompat
@@ -10,22 +7,13 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.*
-import com.firebase.ui.database.FirebaseListAdapter
-import com.firebase.ui.database.FirebaseListOptions
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
-import com.google.firebase.database.DatabaseReference
-import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.firestore.FirebaseFirestore
-import com.google.firebase.firestore.Query
-import com.google.firebase.firestore.SetOptions
 import com.groep4.mindfulness.R
 import com.groep4.mindfulness.activities.MainActivity
-import com.groep4.mindfulness.interfaces.CallbackInterface
 import com.groep4.mindfulness.model.Message
-import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.fragment_chat.view.*
-import java.text.DateFormat
 import java.util.*
 
 class FragmentChat : Fragment(){
@@ -40,11 +28,6 @@ class FragmentChat : Fragment(){
     private var currentUserId: FirebaseUser? = FirebaseAuth.getInstance().currentUser!!
 
     private var messagesFirebase : MutableList<Message> = mutableListOf()
-
-    override fun onCreate(savedInstanceState: Bundle?)
-    {
-        super.onCreate(savedInstanceState)
-    }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         val view = inflater.inflate(R.layout.fragment_chat, container, false)
@@ -76,19 +59,8 @@ class FragmentChat : Fragment(){
             editText!!.setText("")
             displayChatMessages(view)
         }
-        //displayChatMessages(view)
 
         return view
-    }
-
-    override fun onStart() {
-        super.onStart()
-        //adapter!!.startListening()
-    }
-
-    override fun onStop() {
-        super.onStop()
-        //adapter!!.
     }
 
     /**
@@ -119,34 +91,5 @@ class FragmentChat : Fragment(){
 
             listView!!.adapter = adapter
         }
-
-
-             /*override fun getView(position: Int, v: View, model: Message) {
-                val messageText = v.findViewById(R.id.message_text) as TextView
-                val messageUser = v.findViewById(R.id.message_user) as TextView
-                val messageTime = v.findViewById(R.id.message_time) as TextView
-
-                val messageBackground = v.findViewById(R.id.message_background) as RelativeLayout
-                messageBackground.setBackgroundColor(Color.WHITE)
-                /**
-                 * Als het bericht in de db niet matcht met de huidige gebruiker, zet de achtergrond blauw.
-                 * */
-                if(model.messageUser != currentUserId!!.displayName!!){
-                    messageBackground.setBackgroundColor(Color.parseColor("#9BBBD8"))
-                }
-
-                messageText.text = model.content
-                messageTime.text = DateFormat.getDateInstance().format(model.messageTime)
-                messageUser.text = model.messageUser
-            }*/
-
-
-
-
-
     }
-
-
-
-
 }
